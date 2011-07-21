@@ -162,6 +162,8 @@
 		B4014B6313D884740023B94E /* libopenjpeg-1.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B40143C813D8834F0023B94E /* libopenjpeg-1.4.a */; };
 		B4014B6513D885CE0023B94E /* jconfig.h in Headers */ = {isa = PBXBuildFile; fileRef = B4014B6413D885CE0023B94E /* jconfig.h */; };
 		B4014B6A13D886350023B94E /* opj_config.h in Headers */ = {isa = PBXBuildFile; fileRef = B4014B6913D886350023B94E /* opj_config.h */; };
+		B4CECE4413D890DD00140030 /* slimftmodules.h in Headers */ = {isa = PBXBuildFile; fileRef = B4CECE4213D890DD00140030 /* slimftmodules.h */; };
+		B4CECE4513D890DD00140030 /* slimftoptions.h in Headers */ = {isa = PBXBuildFile; fileRef = B4CECE4313D890DD00140030 /* slimftoptions.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -363,6 +365,8 @@
 		B40149E013D883EE0023B94E /* tgt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tgt.c; sourceTree = "<group>"; };
 		B4014B6413D885CE0023B94E /* jconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jconfig.h; path = ../../scripts/jconfig.h; sourceTree = "<group>"; };
 		B4014B6913D886350023B94E /* opj_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = opj_config.h; path = ../../scripts/opj_config.h; sourceTree = "<group>"; };
+		B4CECE4213D890DD00140030 /* slimftmodules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = slimftmodules.h; path = ../../scripts/slimftmodules.h; sourceTree = "<group>"; };
+		B4CECE4313D890DD00140030 /* slimftoptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = slimftoptions.h; path = ../../scripts/slimftoptions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -606,6 +610,8 @@
 		B4013E1E13D87DE90023B94E /* freetype-2.4.4 */ = {
 			isa = PBXGroup;
 			children = (
+				B4CECE4213D890DD00140030 /* slimftmodules.h */,
+				B4CECE4313D890DD00140030 /* slimftoptions.h */,
 				B4013F5C13D87DEA0023B94E /* src */,
 			);
 			path = "freetype-2.4.4";
@@ -790,6 +796,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4CECE4413D890DD00140030 /* slimftmodules.h in Headers */,
+				B4CECE4513D890DD00140030 /* slimftoptions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1211,7 +1219,6 @@
 			buildSettings = {
 				DSTROOT = "/tmp/jpeg-8c.dst";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1223,7 +1230,6 @@
 			buildSettings = {
 				DSTROOT = "/tmp/jpeg-8c.dst";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1235,7 +1241,6 @@
 			buildSettings = {
 				DSTROOT = /tmp/jbig2dec.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1247,7 +1252,6 @@
 			buildSettings = {
 				DSTROOT = /tmp/jbig2dec.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1262,10 +1266,11 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DARWIN_NO_CARBON,
 					FT2_BUILD_LIBRARY,
+					"FT_CONFIG_MODULES_H=<slimftmodules.h>",
+					"FT_CONFIG_OPTIONS_H=<slimftoptions.h>",
 					"DEBUG=1",
 				);
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../thirdparty/freetype-2.4.4/include";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1280,9 +1285,10 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DARWIN_NO_CARBON,
 					FT2_BUILD_LIBRARY,
+					"FT_CONFIG_MODULES_H=<slimftmodules.h>",
+					"FT_CONFIG_OPTIONS_H=<slimftoptions.h>",
 				);
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../thirdparty/freetype-2.4.4/include";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1293,7 +1299,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = "/tmp/openjpeg-1.4.dst";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1304,7 +1309,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = "/tmp/openjpeg-1.4.dst";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
